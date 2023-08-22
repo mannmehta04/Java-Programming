@@ -35,7 +35,13 @@ class details extends student{
         System.out.println("Name: "+ name);
         System.out.println("Id: "+ id);
         System.out.println("Rank: "+ rank);
-        System.out.println("SPI: "+ spi);
+        System.out.println("SPI: "+ spi + "\n");
+    }
+
+    void display(details arr[]){
+        for(int i=0; i<arr.length;i++){
+            arr[i].display();
+        }
     }
 
     void update(double spi){
@@ -59,8 +65,18 @@ class details extends student{
     }
 
     void searchStatic(details arr[]){
-        for(int i=0;i<3;i++){
-            if(arr[i].spi == 8.5){
+        System.out.println("8.5 SPI Students:\n");
+        for(int i=0;i<arr.length;i++){
+            if(arr[i].getSpi() == 8.5){
+                arr[i].display();
+            }
+        }
+    }
+
+    void searchRank(details arr[]){
+        System.out.println("Top 2 Students:\n");
+        for(int i=0;i<arr.length;i++){
+            if(arr[i].getRank() < 3){
                 arr[i].display();
             }
         }
@@ -73,13 +89,16 @@ class studentInfo{
         // details s = new details("Mann", "22CP312", 1, 9.2);
         // s.display();
 
-        details[] s1 = new details[3];
+        details[] s1 = new details[4];
+        details list = new details();
 
-        s1[0] = new details("Mann", "22CP312", 2, 9.2);
-        s1[1] = new details("Karma", "22CP304", 3, 8.5);
-        s1[2] = new details("Priya", "22CP303", 1, 9.5);
+        s1[0] = new details("Mann", "22CP312", 3, 9.2);
+        s1[1] = new details("Karma", "22CP304", 4, 8.5);
+        s1[2] = new details("Priya", "22CP302", 1, 9.5);
+        s1[3] = new details("Shivraj", "22CP303", 2, 9.7);
 
-        s1[0].searchStatic(s1);
+        list.searchStatic(s1);
+        list.searchRank(s1);
 
         // s1[0].display();
     }
