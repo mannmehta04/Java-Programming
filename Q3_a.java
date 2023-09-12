@@ -1,26 +1,16 @@
 abstract class data_structure{
     int[] data;
 
-	data_structure(){
-		// data = new int[1];
-	}
-
-    int getData(int index){
-        return 0;
-    }
-
-    void putData(int index, int dataEle){
-		data[index]=dataEle;
-    }
+    abstract int getData(int index);
+    abstract void putData(int index, int dataEle);
 }
 
 class my_stack extends data_structure{
 	int top;
-	// int[] data;
 
 	my_stack(){
 		top=-1;
-		data = new int[10];
+		data = new int[5];
 	}
 
 	@Override
@@ -40,10 +30,8 @@ class my_stack extends data_structure{
 			System.out.println("Stack Overflow");
 			System.exit(0);
 		}
-		else{
+		else
 			putData(top, n);
-			// data[top]=n;
-		}
 	}
 
 	void pop(){
@@ -53,6 +41,7 @@ class my_stack extends data_structure{
 		}
 		else{
 			System.out.println(getData(top)+" removed sucessfully");
+			data[++top] = 0;
 		}
 	}
 
@@ -65,13 +54,12 @@ class my_stack extends data_structure{
 }
 
 class my_queue extends data_structure{
-	int front;
-	int rear;
+	int front, rear;
 
 	my_queue(){
 		front = 0;
 		rear = -1;
-		data = new int[10];
+		data = new int[5];
 	}
 
 	@Override
@@ -87,13 +75,10 @@ class my_queue extends data_structure{
     }
 
 	void add(int n){
-		if(rear >= data.length){
+		if(rear >= data.length)
 			System.out.println("Queue Overflow");
-		}
-		else{
+		else
 			putData(rear, n);
-			// data[rear] = n;
-		}
 	}
 
 	void remove(){			
@@ -109,9 +94,8 @@ class my_queue extends data_structure{
 		}
 
 		// simply remove data
-		else{
+		else
 			System.out.println(getData(front)+" removed sucessfully");
-		}
 	}
 
 	void display(){
@@ -120,9 +104,8 @@ class my_queue extends data_structure{
 		}
 		else{
 			System.out.println("Current Queue Data:");
-			for(int i = front; i <= rear; i++){
+			for(int i = front; i <= rear; i++)
 				System.out.println("Queue [ "+i+" ] = "+ data[i]);
-			}
 		}
 	}
 }

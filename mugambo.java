@@ -23,9 +23,9 @@ public class mugambo extends ACitizen{
 		System.out.println("I am" + name);
 	}
 	public static void main(String[] args) {
-		ACitizen oldme = new ACitizen("Mugambo");
-		ACitizen newme = new mugambo("Durjan Singh", oldme);
-		mugambo m = (mugambo)oldme;
-		newme.report();
+		// ACitizen oldme = new ACitizen("Mugambo");
+		// ACitizen newme = new mugambo("Durjan Singh", oldme);
+		// mugambo m = (mugambo)oldme;
+		// newme.report();
 	}
 }

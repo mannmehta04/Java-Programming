@@ -21,7 +21,7 @@ class Student{
         int range2 = scan.nextInt();
 
         try{
-            if(range1 < 0 && range2 < 0){
+            if(range1 < 0 || range2 < 0){
                 throw new Exception();
             }
             else{
@@ -37,24 +37,25 @@ class Student{
 
         try{
             if(range2<range1){
-                throw new UnorderedRanks();
+                throw new UnorderedRanksException();
             }
         }
-        catch(UnorderedRanks e){
+        catch(UnorderedRanksException e){
             System.out.println(e.toString());
         }
     }
 }
 
-class UnorderedRanks extends Exception{
+class UnorderedRanksException extends Exception{
 
     String msg;
 
-    UnorderedRanks(){
+    UnorderedRanksException(){
         super();
         msg = "Ranks Order is Incorrect";
     }
 
+	@Override
     public String toString(){
         return msg;
     }
@@ -69,7 +70,7 @@ class Q2_a {
         s1[2] = new Student(18, 8);
 
         s1[0].dispRank();
-        s1[1].dispRank();
-        s1[2].dispRank();
+        // s1[1].dispRank();
+        // s1[2].dispRank();
     }
 }

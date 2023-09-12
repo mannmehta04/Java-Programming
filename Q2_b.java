@@ -1,35 +1,29 @@
 class dll{
-    dll prev;
+    dll prev, next;
     int info;
-    dll next;
 
     dll(){
-        prev = null;
+        prev = next = null;
         info = 0;
-        next = null;
     }
 
     dll(int info){
-        prev = null;
+        prev = next = null;
         this.info = info;
-        next = null;
     }
 
     void traverse(){
-        for(dll traverse = this; traverse!=null; traverse=traverse.next){
+        for(dll traverse = this; traverse!=null; traverse=traverse.next)
             System.out.println(traverse.info);
-        }
     }
 
-    void appendAfter(dll newNode){
+    void append(dll newNode){
         dll traverse = this;
         int afterData = traverse.info;
 
-        for(; traverse!=null; traverse=traverse.next){
-            if(newNode.info>traverse.info){
+        for(; traverse!=null; traverse=traverse.next)
+            if(traverse.info<newNode.info)
                 afterData = traverse.info;
-            }
-        }
 
         for(traverse = this ; traverse.info!=afterData ; prev=traverse, traverse=traverse.next){}
 
@@ -50,8 +44,8 @@ class Q2_b {
         dll n1 = new dll(30);
         dll n2 = new dll(20);
 
-        first.appendAfter(n1);
-        first.appendAfter(n2);
+        first.append(n1);
+        first.append(n2);
         first.traverse();
     }
 }
