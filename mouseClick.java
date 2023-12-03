@@ -28,7 +28,7 @@ public class mouseClick extends Applet implements MouseMotionListener{
 		x = e.getX();
 		y = e.getY();
 
-		showStatus(x + "  " + y);
+	//	showStatus(x + "  " + y);
 	}
 	
 }
