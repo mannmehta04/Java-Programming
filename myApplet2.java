@@ -35,31 +35,31 @@ public class myApplet2 extends Applet implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == b1){
-			showStatus("Kalp is Great");
+		// if(e.getSource() == b1){
+		// 	showStatus("Kalp is Great");
+		// }
+		// else if(e.getSource() == b2){
+		// 	showStatus("Ayush is Pussy");
+		// }
+		if(e.getActionCommand().equals("Button 1")){
+			tCount++;
+			// System.out.println(tCount);
+			if(tCount % 2 == 0){
+				showStatus(" " + ++count1 + " "+count2);
+			}
+			else{
+				showStatus(" " + count1 + " "+count2);
+			}
 		}
-		else if(e.getSource() == b2){
-			showStatus("Ayush is Pussy");
+		else if(e.getActionCommand().equals("Button 2"))
+			showStatus(" " + count1 + " "+ ++count2);
+		else if(e.getActionCommand().equals("Button 3")){
+			count1 = 0;
+			showStatus(" " + count1 + " "+ count2);
 		}
-		// if(e.getActionCommand().equals("Button 1")){
-		// 	tCount++;
-		// 	// System.out.println(tCount);
-		// 	if(tCount % 2 == 0){
-		// 		showStatus(" " + ++count1 + " "+count2);
-		// 	}
-		// 	else{
-		// 		showStatus(" " + count1 + " "+count2);
-		// 	}
-		// }
-		// else if(e.getActionCommand().equals("Button 2"))
-		// 	showStatus(" " + count1 + " "+ ++count2);
-		// else if(e.getActionCommand().equals("Button 3")){
-		// 	count1 = 0;
-		// 	showStatus(" " + count1 + " "+ count2);
-		// }
-		// else if(e.getActionCommand().equals("Button 4")){
-		// 	count2 = 0;
-		// 	showStatus(" " + count1 + " "+ count2);
-		// }
+		else if(e.getActionCommand().equals("Button 4")){
+			count2 = 0;
+			showStatus(" " + count1 + " "+ count2);
+		}
 	}
 }
